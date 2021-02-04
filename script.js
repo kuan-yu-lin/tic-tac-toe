@@ -14,6 +14,7 @@ const cellElements = document.querySelectorAll('[data-cell]');
 const board  = document.getElementById('board');
 const winningMessageElement  = document.getElementById('winningMessage');
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]');
+const winningMessageFaceElement = document.querySelector('[data-winning-message-face]');
 const restartButton = document.getElementById('restartButton')
 let circleTurn;
 // if (circleTurn == false) means it's xTurn
@@ -50,9 +51,11 @@ function handleClick(e) {
 
 function endGame(draw) {
     if (draw) {
-        winningMessageTextElement.innerText = 'Draw(´･_･`)'
+        winningMessageTextElement.innerText = '平手';
+        winningMessageFaceElement.innerText = '(´･_･`)';
     } else {
-        winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Win！٩(๑❛ᴗ❛๑)۶`
+        winningMessageTextElement.innerText = `${circleTurn ? "O" : "X"} 獲勝！`;
+        winningMessageFaceElement.innerText = '٩(๑❛ᴗ❛๑)۶';
     };
     winningMessageElement.classList.add('show'); //add 'show' class back into HTML
 }
